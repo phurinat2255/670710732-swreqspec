@@ -1,12 +1,41 @@
-// โครงเริ่มต้นของรายวิชา: ยังไม่มีหน้าจอของ task ใด ๆ
-// หน้าจอจริงจะถูกสร้างใน src/pages/ ตาม task ใน tasks.md ทีละหน้า
-export default function App() {
-  return (
-    <main className="mx-auto max-w-2xl p-6">
-      <h1 className="text-2xl font-bold text-teal-800">ระบบจองคิวตรวจสุขภาพ</h1>
-      <p className="mt-2 text-slate-600">
-        โครงหน้าจอพร้อมแล้ว หน้าจอของแต่ละ task จะอยู่ในโฟลเดอร์ src/pages/
-      </p>
-    </main>
-  )
+import { useState } from 'react'
+import { api, mockApi } from './api/client'
+import ConfirmBooking from './pages/ConfirmBooking'
+import BookingResult from './pages/BookingResult'
+import SlotPicker from './pages/SlotPicker'
+
+// รองรับ FR-BKG-01, FR-BKG-03, FR-BKG-04 และ FR-BKG-05
+export default function App({ client: providedClient }) {
+  const [selectedSlot, setSelectedSlot] = useState(null)
+  const defaultClient =
+    import.meta.env.VITE_USE_MOCK_API !== 'false' || import.meta.env.MODE === 'test'
+      ? mockApi
+      : api
+  const client = providedClient ?? defaultClient
+  const [booking, setBooking] = useState(null)
+
+  if (booking) {
+    return (
+      <BookingResult
+        booking={booking}
+        onNewBooking={() => {
+          setBooking(null)
+          setSelectedSlot(null)
+        }}
+      />
+    )
+  }
+
+  if (selectedSlot) {
+    return (
+      <ConfirmBooking
+        slot={selectedSlot}
+        client={client}
+        onBack={() => setSelectedSlot(null)}
+        onBookingCreated={setBooking}
+      />
+    )
+  }
+
+  return <SlotPicker client={client} onSlotSelect={setSelectedSlot} />
 }
