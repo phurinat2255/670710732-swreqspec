@@ -41,3 +41,18 @@
 - เพิ่ม ASM-05 ถึง ASM-08 เพื่อสรุปการตัดสินใจของทีมให้เป็นข้อสมมติฐานที่ชัดเจนใน spec
 
 ---
+
+## 2569-10-06 03:17 คำสั่ง: /tasks specs/001-booking/spec.md
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์: specs/001-booking/spec.md และ specs/001-booking/plan.md
+
+### ผลลัพธ์
+
+- สร้าง specs/001-booking/tasks.md จำนวน 19 tasks เรียงตาม dependencies
+- มี 4 tasks รอคำตอบ Q-02 เรื่องรูปแบบและวิธีออกหมายเลขคิว
+- เพิ่มตาราง traceability ครบทุก AC-BKG-01 ถึง AC-BKG-06 และ Constraint CON-TECH-01, DOM-PDPA-01, IF-IDP-01, IF-HIS-01, IF-NOT-01
+- เพิ่ม task สำหรับตรวจ NFR-PERF-01, NFR-SEC-01 และ NFR-USE-01
+- ไม่เริ่ม implement task ใด ๆ
+
+---
