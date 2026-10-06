@@ -10,10 +10,10 @@
 ### T-01 สร้าง model และ migration
 - รองรับ: CON-TECH-01, FR-BKG-01, FR-BKG-02, FR-BKG-04, DOM-PDPA-01, IF-HIS-01
 - ตรวจด้วย: ไม่มี AC ตรง ๆ เป็นงานพื้นฐานของ T-04, T-06, T-08 และ T-12
-- ไฟล์ที่แตะ: `backend/app/db/models.py`, `backend/app/db/session.py`, `backend/app/db/migrations/001_init.py`, `backend/tests/conftest.py`
+- ไฟล์ที่แตะ: `backend/app/db/models.py`, `backend/app/db/session.py`, `backend/app/db/migrations/001_init.py`, `backend/tests/conftest.py`, `backend/tests/test_db.py`
 - ต้องทำหลัง: ไม่มี
 - เสร็จเมื่อ: migration สร้างตาราง slots, bookings และ audit_logs ได้ และทดสอบฐานข้อมูล SQLite ในหน่วยความจำผ่าน
-- สถานะ: พร้อมทำ
+- สถานะ: เสร็จ รอทีมตรวจ
 
 ### T-02 ตรวจผลยืนยันตัวตนก่อนเข้าถึงข้อมูล
 - รองรับ: IF-IDP-01

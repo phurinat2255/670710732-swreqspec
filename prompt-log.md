@@ -56,3 +56,19 @@
 - ไม่เริ่ม implement task ใด ๆ
 
 ---
+
+## 2569-10-06 03:26 คำสั่ง: /implement T-01 specs/001-booking/tasks.md
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์: specs/001-booking/tasks.md (ปรับขอบเขตตามที่ทีมอนุญาต), backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/001_init.py, backend/tests/conftest.py, backend/tests/test_db.py
+
+### ผลลัพธ์
+
+- สร้าง SQLAlchemy models และ migration สำหรับ slots, bookings และ audit_logs
+- ตาราง bookings เก็บ HN และไม่มีคอลัมน์เลขบัตรประชาชน
+- เพิ่ม fixture สำหรับ SQLite ในหน่วยความจำและ test ตรวจ migration/schema
+- ผลทดสอบ: `pytest -q tests/test_db.py` ผ่าน 1 test
+- เปลี่ยนสถานะ T-01 เป็น “เสร็จ รอทีมตรวจ”
+- ก่อนเริ่มติดข้อจำกัดเรื่องไม่มีไฟล์ test อยู่ในขอบเขต T-01 จึงถามทีมก่อนเพิ่ม `backend/tests/test_db.py`; ทีมอนุญาตให้ปรับขอบเขตดังกล่าว
+
+---
