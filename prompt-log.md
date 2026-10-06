@@ -57,6 +57,21 @@
 
 ---
 
+## 2569-10-06 03:29 คำสั่ง: /implement T-02 specs/001-booking/tasks.md
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์: backend/app/auth/idp.py, backend/app/main.py, backend/tests/test_idp.py, specs/001-booking/tasks.md
+
+### ผลลัพธ์
+
+- เพิ่ม dependency สำหรับรับผลยืนยันตัวตนที่ผ่านการตรวจจากระบบ IDP แล้ว และปฏิเสธคำขอที่ไม่มีผลยืนยันหรือผลยืนยันไม่ผ่าน
+- ผูกการตรวจสอบเข้ากับ protected router สำหรับ endpoint ที่เข้าถึงข้อมูลผู้รับบริการ
+- ผลทดสอบ: `pytest -q tests/test_idp.py` ผ่าน 3 tests (มีคำเตือน deprecation จาก Starlette/httpx)
+- เปลี่ยนสถานะ T-02 เป็น “เสร็จ รอทีมตรวจ”
+- ก่อนเริ่มถามรูปแบบการรับผลยืนยันจาก IDP; ทีมเลือกให้ฉีดผลที่ตรวจแล้วผ่าน dependency และจำลองได้ใน test
+
+---
+
 ## 2569-10-06 03:26 คำสั่ง: /implement T-01 specs/001-booking/tasks.md
 
 - เครื่องมือ: Copilot ใน Codespaces
